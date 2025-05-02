@@ -10,8 +10,7 @@ public class WordSearchSolver {
         String puzzleFile = scanner.nextLine();
         System.out.println("Enter word file name:");
         String wordFile = scanner.nextLine();
-        System.out.println("Enter solution file name:");
-        String solutionFile = scanner.nextLine();
+        String solutionFile = "solution.txt"; // Auto-generated solution file
 
         try {
             char[][] puzzle = readPuzzle(puzzleFile);
@@ -21,7 +20,7 @@ public class WordSearchSolver {
             printGrid(puzzle);
 
             char[][] solution = new char[puzzle.length][puzzle[0].length];
-            for (char[] row : solution) Arrays.fill(row, '0'); // Placeholder '0's
+            for (char[] row : solution) Arrays.fill(row, '0'); // Initialize with '0's
 
             int[][] directions = {{-1, -1}, {-1, 0}, {-1, 1}, {0, -1}, {0, 1}, {1, -1}, {1, 0}, {1, 1}};
 
@@ -59,7 +58,7 @@ public class WordSearchSolver {
                 }
             }
 
-            System.out.println("\nSolution:");
+            System.out.println("\nSolution (saved to solution.txt):");
             printGrid(solution);
             writeSolution(solutionFile, solution);
 
